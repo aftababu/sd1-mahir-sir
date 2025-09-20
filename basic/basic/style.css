@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-color: #3d8d7a;
+  --secondary-color: #b3d8a8;
+  --font-color: #333;
+  --background-color: #fbffe4;
+  --secondary-background: #75a398;
+  --accent-color: #ff6b6b;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(to bottom,#597259,#8bcf8b);
+  color: var(--font-color);
+  line-height: 1.6;
+}
+
+#container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+#navbar {
+  background-color: var(--secondary-background);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  margin-top: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: navanimation .7s ease-in-out;
+  position: relative;
+}
+
+#logo {
+  width: 80px;
+  height: auto;
+}
+
+#navList {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navItem a {
+  font-size: 18px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: var(--font-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  user-select: none;     
+  -webkit-user-drag: none; 
+}
+
+.navItem a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  height: 70dvh;
+
+}
+
+.rpart img {
+  width: 100%;
+  user-select: none;     
+  -webkit-user-drag: none; 
+  pointer-events: none; 
+
+}
+.lpart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.hero p {
+  font-size: 22px;
+  margin-top: 10px;
+  color: var(--font-color);
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero a:hover {
+  background-color: var(--primary-color);
+}
+
+#skills {
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+#skillSet {
+  display: flex;
+  gap: 25px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+#skillSet img {
+  width: 80px;
+  height: auto;
+  flex-shrink: 0;
+  user-select: none;     
+  -webkit-user-drag: none; 
+  pointer-events: none; 
+}
+
+#projects {
+  margin-top: 60px;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+#projectContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+#projectContainer>div {
+  background-color: var(--secondary-background);
+  border-radius: 12px;
+  border: 2px solid var(--secondary-background);
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+#projectContainer>div>img {
+  width: 100%;
+  height: 80%;
+  border-radius: 9px;
+  user-select: none;     
+  -webkit-user-drag: none; 
+}
+
+#projectContainer>div>button {
+  align-self: flex-end;
+  margin: 4px 8px;
+  padding: 8px 28px;
+  border-radius: 9px;
+  background-color: var(--background-color);
+  cursor: pointer;
+  color: var(--primary-color);
+  border: 1px solid var(--secondary-background)
+}
+
+#projectContainer>div>button:hover {
+  transition: all .3 ease;
+  background-color: var(--primary-color);
+  color: var(--secondary-background);
+}
+
+
+#projectContainer>div:hover {
+  transform: translateY(-5px);
+}
+
+#contact {
+  margin-top: 60px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+#contact form {
+  max-width: 600px;
+  margin: auto;
+  background-color: var(--secondary-background);
+  padding: 24px 36px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+
+}
+
+#contact form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+  text-align: left;
+  gap: 6px;
+}
+
+#contact label {
+  font-size: 16px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+#contact input,
+#contact textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid var(--secondary-background);
+  border-radius: 6px;
+  background-color: var(--background-color);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+#contact textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#contact button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  align-self: flex-end;
+}
+
+#contact button:hover {
+  background-color: var(--primary-color);
+}
+
+#footer {
+  margin-top: 60px;
+  background-color: var(--secondary-background);
+  padding: 20px;
+  border-top: 2px solid var(--primary-color);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: left;
+}
+
+#footer div {
+  font-size: 14px;
+}
+
+#footer p {
+  margin: 4px 0;
+}
+#socialmedia{
+  position: fixed;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 6px;
+  border-radius: 9px;
+  background: var(--background-color);
+  animation: socialanimation 1s ease-in-out;
+}
+#socialmedia >img{
+  width: 44px;
+  height: auto;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+#socialmedia > img:hover{
+  transform: scale(1.2);
+}
+
+
+.animate-waving {
+  animation-name: waving;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  overflow: hidden;
+  border: 4px solid;
+  border-radius: inherit;
+}
+@keyframes socialanimation{
+  0%{
+    right:-1000px;
+  }
+  50%{
+    right:-200px;
+  }
+  100%{
+    right:0px;
+  }
+}
+
+@keyframes navanimation{
+  0%{
+    top:-1000px;
+  }
+  50%{
+    top:-200px;
+  }
+  100%{
+    top:0px;
+  }
+}
+
+
+@keyframes waving {
+  0% {
+    border-color: transparent;
+    border-radius: 92% 40% 65% 85%/60% 30% 67% 66%;
+  }
+
+  25% {
+    border-color: var(--primary-color);
+    border-radius: 92% 40% 65% 85%/60% 30% 67% 66%;
+  }
+
+  50% {
+    border-color: var(--secondary-color);
+    border-radius: 30% 51% 94% 67%/90% 60% 74% 60%;
+  }
+
+  75% {
+    border-color: var(--font-color);
+    border-radius: 60% 40% 30% 38%/49% 54% 83% 56%;
+  }
+
+  100% {
+    border-color: var(--background-color);
+    border-radius: 92% 40% 65% 85%/60% 30% 67% 66%;
+  }
+}
