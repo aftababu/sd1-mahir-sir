@@ -3,22 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 
 :root {
-  --primary-color: #3d8d7a;
-  --secondary-color: #b3d8a8;
+  --primary-color: #2c8549;
+  --secondary-color: #4cd66f9a;
   --font-color: #333;
   --background-color: #fbffe4;
-  --secondary-background: #75a398;
+  --secondary-background: #42a78f91;
   --accent-color: #ff6b6b;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background:linear-gradient(to bottom,#597259,#8bcf8b);
+  background-image: linear-gradient(
+    to top right,
+    #e4afcb 0%,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #e2c58b 30%,
+    #c2ce9c 64%,
+    #7edbdc 100%
+  );
   color: var(--font-color);
   line-height: 1.6;
 }
@@ -38,7 +46,7 @@ body {
   padding: 14px 24px;
   margin-top: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  animation: navanimation .7s ease-in-out;
+  animation: navanimation 0.7s ease-in-out;
   position: relative;
 }
 
@@ -61,8 +69,8 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
-  user-select: none;     
-  -webkit-user-drag: none; 
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .navItem a:hover {
@@ -77,22 +85,21 @@ body {
   justify-content: space-between;
   gap: 4px;
   height: 70dvh;
-
 }
 
 .rpart img {
   width: 100%;
-  user-select: none;     
-  -webkit-user-drag: none; 
-  pointer-events: none; 
-
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 .lpart {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-
+  flex-wrap: nowrap;
+  text-align: left;
 }
 
 .hero h1 {
@@ -129,7 +136,6 @@ body {
   margin-top: 40px;
 }
 
-
 #skillSet {
   display: flex;
   gap: 25px;
@@ -142,9 +148,9 @@ body {
   width: 80px;
   height: auto;
   flex-shrink: 0;
-  user-select: none;     
-  -webkit-user-drag: none; 
-  pointer-events: none; 
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 #projects {
@@ -164,7 +170,7 @@ body {
   gap: 20px;
 }
 
-#projectContainer>div {
+#projectContainer > div {
   background-color: var(--secondary-background);
   border-radius: 12px;
   border: 2px solid var(--secondary-background);
@@ -176,16 +182,20 @@ body {
   justify-content: center;
   align-items: start;
 }
+#projectContainer > div > p {
+  margin: 2px 8px;
+  color: var(--background-color);
+}
 
-#projectContainer>div>img {
+#projectContainer > div > img {
   width: 100%;
   height: 80%;
   border-radius: 9px;
-  user-select: none;     
-  -webkit-user-drag: none; 
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-#projectContainer>div>button {
+#projectContainer > div > button {
   align-self: flex-end;
   margin: 4px 8px;
   padding: 8px 28px;
@@ -193,17 +203,16 @@ body {
   background-color: var(--background-color);
   cursor: pointer;
   color: var(--primary-color);
-  border: 1px solid var(--secondary-background)
+  border: 1px solid var(--secondary-background);
 }
 
-#projectContainer>div>button:hover {
-  transition: all .3 ease;
+#projectContainer > div > button:hover {
+  transition: all 0.3 ease;
   background-color: var(--primary-color);
-  color: var(--secondary-background);
+  color: var(--background-color);
 }
 
-
-#projectContainer>div:hover {
+#projectContainer > div:hover {
   transform: translateY(-5px);
 }
 
@@ -227,7 +236,6 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-
 }
 
 #contact form div {
@@ -236,6 +244,10 @@ body {
   margin-bottom: 14px;
   text-align: left;
   gap: 6px;
+}
+#contact form div label {
+  color: var(--background-color);
+  font-weight: 600;
 }
 
 #contact label {
@@ -298,8 +310,9 @@ body {
 
 #footer p {
   margin: 4px 0;
+  color: var(--background-color);
 }
-#socialmedia{
+#socialmedia {
   position: fixed;
   top: 50%;
   right: 0%;
@@ -312,16 +325,15 @@ body {
   background: var(--background-color);
   animation: socialanimation 1s ease-in-out;
 }
-#socialmedia >img{
+#socialmedia > img {
   width: 44px;
   height: auto;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-#socialmedia > img:hover{
+#socialmedia > img:hover {
   transform: scale(1.2);
 }
-
 
 .animate-waving {
   animation-name: waving;
@@ -332,30 +344,29 @@ body {
   border: 4px solid;
   border-radius: inherit;
 }
-@keyframes socialanimation{
-  0%{
-    right:-1000px;
+@keyframes socialanimation {
+  0% {
+    right: -1000px;
   }
-  50%{
-    right:-200px;
+  50% {
+    right: -200px;
   }
-  100%{
-    right:0px;
-  }
-}
-
-@keyframes navanimation{
-  0%{
-    top:-1000px;
-  }
-  50%{
-    top:-200px;
-  }
-  100%{
-    top:0px;
+  100% {
+    right: 0px;
   }
 }
 
+@keyframes navanimation {
+  0% {
+    top: -1000px;
+  }
+  50% {
+    top: -200px;
+  }
+  100% {
+    top: 0px;
+  }
+}
 
 @keyframes waving {
   0% {
@@ -381,5 +392,58 @@ body {
   100% {
     border-color: var(--background-color);
     border-radius: 92% 40% 65% 85%/60% 30% 67% 66%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    gap: 20px;
+  }
+
+  .lpart,
+  .rpart {
+    align-items: center;
+  }
+
+  #skillSet {
+    justify-content: center;
+  }
+
+  #footer {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #navbar {
+    background: none;
+    box-shadow: none;
+  }
+  #navList {
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: var(--secondary-background); */
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #navList.active {
+    display: flex;
+  }
+
+  .navItem a {
+    font-size: 16px;
+  }
+  .lpart {
+    text-align: start;
+    align-items: start;
   }
 }
