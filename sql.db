@@ -1,0 +1,12 @@
+
+
+INSERT INTO Employees (EmployeeID, Name, Age, Department)
+VALUES (101, 'aftababu', 21, 'developer');
+
+SELECT * FROM Employees;
+
+
+UPDATE Employees SET Age = 17 WHERE EmployeeID = 1;
+
+
+DELETE FROM Employees WHERE EmployeeID = 1;

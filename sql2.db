@@ -1,0 +1,12 @@
+
+INSERT INTO Students (StudentID, Name, Age, Department, Marks)
+VALUES (6, 'Farhan', 21, 'EEE', 80);
+
+
+SELECT * FROM Students WHERE Department = 'CSE' AND Marks > 70;
+
+
+UPDATE Students SET Marks = 65 WHERE Name = 'Tanvir';
+
+
+DELETE FROM Students WHERE Marks < 60;
