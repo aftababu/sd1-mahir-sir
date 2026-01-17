@@ -10,10 +10,10 @@ import java.util.Optional;
 @Service
 public class CourseService {
     private final List<Course> courses = new ArrayList<>();
-    private Long nextId = 100L; // simulate ID generation
+    private Long nextId = 100L;
 
     public List<Course> getAll() {
-        return new ArrayList<>(courses); // defensive copy
+        return new ArrayList<>(courses);
     }
 
     public Optional<Course> getById(Long id) {
