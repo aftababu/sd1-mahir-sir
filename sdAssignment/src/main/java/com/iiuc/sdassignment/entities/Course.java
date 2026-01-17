@@ -1,16 +1,6 @@
 package com.iiuc.sdassignment.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "courses")
 public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String code;
     private String title;
@@ -21,6 +11,18 @@ public class Course {
     private String teacher;
 
     public Course() {}
+
+    public Course(Long id, String code, String title, Double credit, String type,
+                  String semester, Long departmentId, String teacher) {
+        this.id = id;
+        this.code = code;
+        this.title = title;
+        this.credit = credit;
+        this.type = type;
+        this.semester = semester;
+        this.departmentId = departmentId;
+        this.teacher = teacher;
+    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

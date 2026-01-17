@@ -1,49 +1,52 @@
 package com.iiuc.sdassignment.services;
 
 import com.iiuc.sdassignment.entities.Course;
-import com.iiuc.sdassignment.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CourseService {
-    private final CourseRepository courseRepository;
+    private final List<Course> courses = new ArrayList<>();
+    private Long nextId = 100L; // simulate ID generation
 
-    public CourseService(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
+    public List<Course> getAll() {
+        return new ArrayList<>(courses); // defensive copy
     }
 
-    public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+    public Optional<Course> getById(Long id) {
+        return courses.stream().filter(c -> c.getId().equals(id)).findFirst();
     }
 
-    public Optional<Course> getCourseById(Long id) {
-        return courseRepository.findById(id);
+    public Course add(Course course) {
+        course.setId(nextId++);
+        courses.add(cloneCourse(course));
+        return cloneCourse(course);
     }
 
-    public Course addCourse(Course course) {
-        return courseRepository.save(course);
-    }
-
-    public Optional<Course> updateCourse(Long id, Course updatedCourse) {
-        return courseRepository.findById(id).map(course -> {
-            course.setCode(updatedCourse.getCode());
-            course.setTitle(updatedCourse.getTitle());
-            course.setCredit(updatedCourse.getCredit());
-            course.setType(updatedCourse.getType());
-            course.setSemester(updatedCourse.getSemester());
-            course.setDepartmentId(updatedCourse.getDepartmentId());
-            course.setTeacher(updatedCourse.getTeacher());
-            return courseRepository.save(course);
+    public Optional<Course> update(Long id, Course updated) {
+        return getById(id).map(existing -> {
+            existing.setCode(updated.getCode());
+            existing.setTitle(updated.getTitle());
+            existing.setCredit(updated.getCredit());
+            existing.setType(updated.getType());
+            existing.setSemester(updated.getSemester());
+            existing.setDepartmentId(updated.getDepartmentId());
+            existing.setTeacher(updated.getTeacher());
+            return cloneCourse(existing);
         });
     }
 
-    public boolean deleteCourse(Long id) {
-        if (courseRepository.existsById(id)) {
-            courseRepository.deleteById(id);
-            return true;
-        }
-        return false;
+    public boolean delete(Long id) {
+        return courses.removeIf(c -> c.getId().equals(id));
+    }
+
+    private Course cloneCourse(Course c) {
+        return new Course(
+                c.getId(), c.getCode(), c.getTitle(), c.getCredit(),
+                c.getType(), c.getSemester(), c.getDepartmentId(), c.getTeacher()
+        );
     }
 }
