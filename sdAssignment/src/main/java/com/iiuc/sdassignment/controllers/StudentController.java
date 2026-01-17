@@ -19,7 +19,8 @@ public class StudentController {
          return ResponseEntity.ok(service.getAll());
     }
     @PostMapping
-    public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+    public ResponseEntity<Student> addStudent() {
+        Student student = new Student();
         return ResponseEntity.ok(service.createStudent(student));
     }
 

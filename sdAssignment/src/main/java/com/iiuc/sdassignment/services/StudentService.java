@@ -22,6 +22,7 @@ public class StudentService {
 
     public Student createStudent( Student student) {
         student.setId(nextId++);
+        student.setCourseIds(new ArrayList<>());
         students.add(student);
         return student;
     }
